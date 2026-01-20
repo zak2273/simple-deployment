@@ -28,6 +28,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v5
 
+      - name: Fix permission
+        run: chmod +x ./scripts/create_file.sh
+
       - name: Run shell script
         run: ./scripts/create_file.sh
         shell: bash
