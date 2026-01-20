@@ -27,5 +27,13 @@ jobs:
         run: ./scripts/create_file.sh "${{ github.event.inputs.target_environment }}"
         shell: bash
 
+      - name: List files
+        run: |
+          for file in *; do
+            if [ -f "$file" ]; then
+              printf "%s\n" "${file%.*}" >> test.txt
+            fi
+          done
+
       - name: Output text
         run: cat test.txt
