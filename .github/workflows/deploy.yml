@@ -4,6 +4,12 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
+    inputs:
+      target_environment:
+        required: true
+        default: "staging"
+        type: string
 
 jobs:
   build:
@@ -31,8 +37,12 @@ jobs:
       - name: Fix permission
         run: chmod +x ./scripts/create_file.sh
 
+      - name: Get input
+        run: |
+          echo "Environment: ${{ github.event.inputs.target_environment }}"
+
       - name: Run shell script
-        run: ./scripts/create_file.sh
+        run: ./scripts/create_file.sh ${{ github.event.inputs.target_environment }}
         shell: bash
 
       - name: Output text
