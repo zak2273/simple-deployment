@@ -1,5 +1,7 @@
 touch test.txt
 
 for substring in $1; do
-  echo "$substring" >> test.txt
+  if $(( $1 % 2 == 0 )); then
+    echo "$substring" > test.txt
+  fi
 done
