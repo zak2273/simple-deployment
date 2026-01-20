@@ -1,2 +1,5 @@
 touch test.txt
-echo $1 > test.txt
+
+for substring in $1; do
+  echo $substring > test.txt
+done
