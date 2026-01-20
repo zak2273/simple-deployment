@@ -34,3 +34,6 @@ jobs:
       - name: Run shell script
         run: ./scripts/create_file.sh
         shell: bash
+
+      - name: Output text
+        run: cat test.txt
