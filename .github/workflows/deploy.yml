@@ -42,7 +42,7 @@ jobs:
           echo "Environment: ${{ github.event.inputs.target_environment }}"
 
       - name: Run shell script
-        run: ./scripts/create_file.sh "${{ github.event.inputs.target_environment }}
+        run: ./scripts/create_file.sh "${{ github.event.inputs.target_environment }}"
         shell: bash
 
       - name: Output text
